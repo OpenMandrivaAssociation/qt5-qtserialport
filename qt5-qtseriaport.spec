@@ -3,7 +3,7 @@
 
 %define api 5
 %define qtminor 4
-%define qtsubminor 0
+%define qtsubminor 1
 
 %define qtversion %{api}.%{qtminor}.%{qtsubminor}
 
