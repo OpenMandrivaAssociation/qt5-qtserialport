@@ -1,27 +1,28 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major %api
-%define beta
+%define beta %nil
 
 %define qtserialport %mklibname qt%{api}serialport %{major}
 %define qtserialportd %mklibname qt%{api}serialport -d
 %define qtserialport_p_d %mklibname qt%{api}serialport-private -d
 
-%define qttarballdir qtserialport-opensource-src-%{version}%{?beta:-%{beta}}
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtserialport
 Version:	5.5.0
-%if "%{beta}" == ""
-Release:	1
-Source0:	http://download.qt.io/official_releases/qt/%(echo %{version} |cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
-%else
+%if "%{beta}" != ""
 Release:	1.%{beta}.1
-Source0:	http://download.qt.io/development_releases/qt/%(echo %{version} |cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
+%define qttarballdir qtserialport-opensource-src-%{version}-%{beta}
+Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
+%else
+Release:	1
+%define qttarballdir qtserialport-opensource-src-%{version}
+Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
 Summary:	Qt Location
 Group:		Development/KDE and Qt
 License:	LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
-URL:		http://www.qt-project.org
+URL:		http://www.qt.io
 BuildRequires:	qt5-qtbase-devel >= %{version}
 BuildRequires:	pkgconfig(libudev)
 
