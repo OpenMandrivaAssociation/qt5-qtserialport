@@ -25,6 +25,7 @@ License:	LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
 URL:		http://www.qt.io
 BuildRequires:	qmake5 >= %{version}
 BuildRequires:	pkgconfig(Qt5Core) >= %{version}
+BuildRequires:	pkgconfig(Qt5Widgets) >= %{version}
 BuildRequires:	pkgconfig(Qt5Test) >= %{version}
 BuildRequires:	pkgconfig(libudev)
 
