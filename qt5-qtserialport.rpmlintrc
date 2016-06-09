@@ -1,0 +1,1 @@
+addFilter(".*examples.*E: devel-file-in-non-devel-package")

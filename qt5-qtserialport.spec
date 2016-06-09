@@ -9,9 +9,9 @@
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtserialport
-Version:	5.6.0
+Version:	5.6.1
 %if "%{beta}" != ""
-Release:	1.%{beta}.1
+Release:	0.%{beta}.1
 %define qttarballdir qtserialport-opensource-src-%{version}-%{beta}
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
@@ -19,6 +19,7 @@ Release:	1
 %define qttarballdir qtserialport-opensource-src-%{version}
 Source0:	http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
+Source100:	%{name}.rpmlintrc
 Summary:	Qt Location
 Group:		Development/KDE and Qt
 License:	LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
@@ -82,6 +83,18 @@ Devel files needed to build apps based on QtSerialport.
 %files -n %{qtserialport_p_d}
 %{_qt5_includedir}/QtSerialPort/%version
 %{_qt5_prefix}/mkspecs/modules/qt_lib_serialport_private.pri
+
+#------------------------------------------------------------------------------
+
+%package examples
+Summary: Examples for the Qt SerialPort library
+Group: Development/KDE and Qt
+
+%description examples
+Examples for the Qt SerialPort library
+
+%files examples
+%{_qt5_prefix}/examples/*
 
 #------------------------------------------------------------------------------
 
