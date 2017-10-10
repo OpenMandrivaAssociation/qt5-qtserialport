@@ -1,6 +1,6 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major %api
-%define beta %{nil}
+%define beta beta
 
 %define qtserialport %mklibname qt%{api}serialport %{major}
 %define qtserialportd %mklibname qt%{api}serialport -d
@@ -9,10 +9,10 @@
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtserialport
-Version:	5.9.2
+Version:	5.10.0
 %if "%{beta}" != ""
 Release:	0.%{beta}.1
-%define qttarballdir qtserialport-opensource-src-%{version}-%{beta}
+%define qttarballdir qtserialport-everywhere-src-%{version}-%{beta}
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
 Release:	1
