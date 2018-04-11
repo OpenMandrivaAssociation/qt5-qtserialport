@@ -1,6 +1,6 @@
 %define api %(echo %{version} |cut -d. -f1)
 %define major %api
-%define beta %{nil}
+%define beta beta3
 
 %define qtserialport %mklibname qt%{api}serialport %{major}
 %define qtserialportd %mklibname qt%{api}serialport -d
@@ -9,7 +9,7 @@
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtserialport
-Version:	5.10.1
+Version:	5.11.0
 %if "%{beta}" != ""
 Release:	0.%{beta}.1
 %define qttarballdir qtserialport-everywhere-src-%{version}-%{beta}
