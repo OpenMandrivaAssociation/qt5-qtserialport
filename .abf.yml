@@ -1,4 +1,5 @@
 removed_sources:
   qtserialport-opensource-src-5.9.2.tar.xz: ab6d095db31a2b18e1400414087484e00cd3ef72
-sources:
   qtserialport-opensource-src-5.9.6.tar.xz: d7e3a3b3bbc131b8c0d15af2b9697699aec2a389
+sources:
+  qtserialport-opensource-src-5.9.7.tar.xz: d59ec9110183149394f4369eff4e100e194a1319
