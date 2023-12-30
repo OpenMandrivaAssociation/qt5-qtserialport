@@ -9,7 +9,7 @@
 %define _qt5_prefix %{_libdir}/qt%{api}
 
 Name:		qt5-qtserialport
-Version:	5.15.11
+Version:	5.15.12
 %if "%{beta}" != ""
 Release:	0.%{beta}.1
 %define qttarballdir qtserialport-everywhere-src-%{version}-%{beta}
